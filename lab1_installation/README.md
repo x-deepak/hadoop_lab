@@ -58,7 +58,7 @@ mv hadoop-3.3.6 hadoop
 ```
 nano ~/.bashrc
 ```
-### Append the following lines to the file
+##### Append the following lines to the file
 ```
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export HADOOP_HOME=/home/hadoop/hadoop
@@ -73,35 +73,35 @@ export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 export HADOOP_CLASSPATH=$(hadoop classpath)
 ```
 
-### Load the above configuration into the current environment
+##### Load the above configuration into the current environment
 ```
 source ~/.bashrc
 ```
 
-### Additionally, you should configure the ‘JAVA_HOME’ in the ‘hadoop-env.sh’ file
+##### Additionally, you should configure the ‘JAVA_HOME’ in the ‘hadoop-env.sh’ file
 ```
 nano $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 ```
 
-### Search for the 'JAVA_HOME' line and configure it
+##### Search for the 'JAVA_HOME' line and configure it
 ```
 JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
 
 ## Step 11: Configuring Hadoop
 
-### Create the name node and data node directories 
+##### Create the name node and data node directories 
 ```
 cd hadoop/
 mkdir -p ~/hadoopdata/hdfs/{namenode,datanode}
 ```
 
-### Edit the ‘core-site.xml’ file and replace the name with your system hostname
+##### Edit the ‘core-site.xml’ file and replace the name with your system hostname
 ```
 nano $HADOOP_HOME/etc/hadoop/core-site.xml
 ```
 
-#### Change the ‘fs.defaultFS’ property value according to your system hostname (keep it same as below)
+###### Change the ‘fs.defaultFS’ property value according to your system hostname (keep it same as below)
 ```
 <configuration>
 <property>
@@ -111,7 +111,7 @@ nano $HADOOP_HOME/etc/hadoop/core-site.xml
 </configuration>
 ```
 
-### Save and close the file. Then, edit the ‘hdfs-site.xml’
+##### Save and close the file. Then, edit the ‘hdfs-site.xml’
 ```
 nano $HADOOP_HOME/etc/hadoop/hdfs-site.xml
 ```
@@ -133,7 +133,7 @@ nano $HADOOP_HOME/etc/hadoop/hdfs-site.xml
 </configuration>
 ```
 
-### Next, edit the ‘mapred-site.xml’ file
+##### Next, edit the ‘mapred-site.xml’ file
 ```
 nano $HADOOP_HOME/etc/hadoop/mapred-site.xml
 ```
@@ -155,7 +155,7 @@ nano $HADOOP_HOME/etc/hadoop/mapred-site.xml
 </configuration>
 ```
 
-### Finally, edit the ‘yarn-site.xml’ file
+##### Finally, edit the ‘yarn-site.xml’ file
 ```
 nano $HADOOP_HOME/etc/hadoop/yarn-site.xml
 ```
@@ -171,18 +171,18 @@ nano $HADOOP_HOME/etc/hadoop/yarn-site.xml
 
 ## Step 12: Start the Hadoop Cluster
 
-### Before starting the Hadoop cluster, you must format the Namenode as the ‘hadoop’ user.
+##### Before starting the Hadoop cluster, you must format the Namenode as the ‘hadoop’ user.
 
 ```
 hdfs namenode -format
 ```
 
-### Start the Hadoop cluster
+##### Start the Hadoop cluster
 ```
 start-all.sh
 ```
 
-### Check the status of all Hadoop services
+##### Check the status of all Hadoop services
 ```
 jps
 ```
@@ -194,12 +194,12 @@ sudo apt install net-tools
 ifconfig
 ```
 
-### Access the Namenode
+##### Access the Namenode
 ```
 http://your-server-ip:9870
 ```
 
-### Access the Resource Manager
+##### Access the Resource Manager
 ```
 http://your-server-ip:8088
 ```
