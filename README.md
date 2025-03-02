@@ -40,7 +40,7 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-#### check if set up: 
+#### check if ssh set up: 
 ```
 ssh localhost
 ```

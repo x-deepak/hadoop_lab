@@ -1,6 +1,11 @@
 # Hadoop Installation
 
-[Reference Link](https://arjunkrish.medium.com/step-by-step-guide-to-setting-up-hadoop-on-ubuntu-installation-and-configuration-walkthrough-60e493e9370d)
+[Medium Reference Link](https://arjunkrish.medium.com/step-by-step-guide-to-setting-up-hadoop-on-ubuntu-installation-and-configuration-walkthrough-60e493e9370d)
+
+[Ubuntu Hadoop Link](https://drive.google.com/drive/folders/1W0AaKcLqwrg92-_Y0IpKd8cuRnJ1Ocop?usp=sharing)
+
+##### Use install.sh after finishing step 8 only
+##### OR Use configure-hadoop.sh after finishing step 10 only
 
 ## Step 1: Install Java Development Kit:
 ```
@@ -70,13 +75,18 @@ export HADOOP_YARN_HOME=$HADOOP_HOME
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
-export HADOOP_CLASSPATH=$(hadoop classpath)
 ```
 
 ##### Load the above configuration into the current environment
 ```
 source ~/.bashrc
 ```
+
+```
+echo 'export HADOOP_CLASSPATH=$(hadoop classpath)' >> ~/.bashrc
+source ~/.bashrc
+```
+
 
 ##### Additionally, you should configure the ‘JAVA_HOME’ in the ‘hadoop-env.sh’ file
 ```
@@ -88,13 +98,13 @@ nano $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
 
-## Step 11: Configuring Hadoop
-
 ##### Create the name node and data node directories 
 ```
 cd hadoop/
 mkdir -p ~/hadoopdata/hdfs/{namenode,datanode}
 ```
+
+## Step 11: Configuring Hadoop
 
 ##### Edit the ‘core-site.xml’ file and replace the name with your system hostname
 ```
