@@ -12,7 +12,7 @@ public class MovieTagsAnalyzer {
         @Override
         public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
             String[] fields = value.toString().split("::");
-            if (fields.length >= 4) {
+            if (fields.length >= 3) {
                 String movieId = fields[1].trim();
                 String tags = fields[2].trim();
                 context.write(new Text(movieId), new Text(tags));

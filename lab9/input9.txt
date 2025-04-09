@@ -1,6 +1,6 @@
-1::1193::Action::2023-03-10
-2::661::Comedy::2023-03-11
-3::1193::Adventure::2023-03-12
-4::661::Drama::2023-03-13
-5::2628::Sci-Fi::2023-03-14
-6::1193::Thriller::2023-03-15
+1::1193::mind-bending::2023-03-10::Star Wars: Episode V
+2::661::laugh out loud::2023-03-11::The Usual Suspects
+3::1193::great soundtrack::2023-03-12::Star Wars: Episode V
+4::661::emotional rollercoaster::2023-03-13::The Usual Suspects
+5::2628::futuristic tech::2023-03-14::2001: A Space Odyssey
+6::1193::intense and gripping::2023-03-15::Star Wars: Episode V
