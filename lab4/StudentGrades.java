@@ -15,6 +15,7 @@ public class StudentGrades {
         @Override
         public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
             String[] tokens = value.toString().split(",");
+
             // Assuming the input format is: student_name,subject,marks
             if (tokens.length == 3) {
                 String studentName = tokens[0];
@@ -28,14 +29,12 @@ public class StudentGrades {
         // Method to calculate grade based on marks
         private String calculateGrade(int marks) {
             if (marks >= 90) {
-                return "A+";
-            } else if (marks >= 80) {
                 return "A";
-            } else if (marks >= 70) {
+            } else if (marks >= 80) {
                 return "B";
-            } else if (marks >= 60) {
+            } else if (marks >= 70) {
                 return "C";
-            } else if (marks >= 50) {
+            } else if (marks >= 60) {
                 return "D";
             } else {
                 return "F";
