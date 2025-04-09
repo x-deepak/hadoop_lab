@@ -1,8 +1,0 @@
-ID,Product,Category,Price,Quantity,Date,Store,Country
-101,Laptop,Electronics,1000,2,2024-03-01,StoreA,USA
-102,Phone,Electronics,800,1,2024-03-02,StoreB,UK
-103,Tablet,Electronics,500,1,2024-03-03,StoreC,USA
-104,Headphones,Accessories,200,3,2024-03-04,StoreD,Canada
-105,Phone,Electronics,800,1,2024-03-05,StoreE,India
-106,Laptop,Electronics,1000,2,2024-03-06,StoreF,Canada
-107,Tablet,Electronics,500,1,2024-03-07,StoreG,USA

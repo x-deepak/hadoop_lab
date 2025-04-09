@@ -8,11 +8,11 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class ProductSalesAnalyzer {
     // Mapper Class
-    public static class SalesMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
-        private static final int COUNTRY_INDEX = 7; // Country field index
+    public static class SalesMapper extends Mapper<Object, Text, Text, IntWritable> {
+        private static final int COUNTRY_INDEX = 8; // Country field index
 
         @Override
-        public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             String[] fields = value.toString().split(",");
             if (fields.length > COUNTRY_INDEX) {
                 String country = fields[COUNTRY_INDEX].trim();
