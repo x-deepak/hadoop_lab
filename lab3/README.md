@@ -19,14 +19,14 @@ jar -cvf HighestTemperature.jar -C classes .
 hdfs dfs -mkdir /input
 hdfs dfs -mkdir /output
 
-hdfs dfs -put input3.txt /input
+hdfs dfs -put Temperature.txt /input
 ```
 
 
 ### 4. Run Jar in Hadoop Cluster :
 
 ```
-hadoop jar HighestTemperature.jar HighestTemperature /input/input3.txt /output/lab3
+hadoop jar HighestTemperature.jar HighestTemperature /input/Temperature.txt /output/lab3
 ```
 
 ### 5. View Output:
