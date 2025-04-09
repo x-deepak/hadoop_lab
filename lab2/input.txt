@@ -1,7 +1,0 @@
-cat
-              Dog
-              cat
-              kich
-              kim
-              yolo
-              uno

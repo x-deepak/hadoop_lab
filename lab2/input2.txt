@@ -1,0 +1,14 @@
+cat
+Dog
+Dog
+hadoop
+cat
+bca
+Dog
+Zoro
+uno
+cmr
+cmr
+bca
+hadoop
+cat
