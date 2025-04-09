@@ -11,9 +11,9 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 public class MatrixMultiplication {
 
     // Mapper class
-    public static class MatrixMapper extends Mapper<LongWritable, Text, Text, Text> {
+    public static class MatrixMapper extends Mapper<Object, Text, Text, Text> {
         @Override
-        public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             String[] tokens = value.toString().split(",");
             if (tokens.length < 4) return;  // Ignore malformed lines
 
@@ -22,7 +22,7 @@ public class MatrixMultiplication {
             int col = Integer.parseInt(tokens[2]);
             int val = Integer.parseInt(tokens[3]);
             
-            int matrixK = context.getConfiguration().getInt("matrixK", 1); // Get matrixK from config
+            int matrixK = 2;
             
             if (matrixName.equals("A")) {
                 // Emit row-wise elements of A
@@ -42,7 +42,7 @@ public class MatrixMultiplication {
     public static class MultiplicationReducer extends Reducer<Text, Text, Text, IntWritable> {
         @Override
         public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-            int matrixK = context.getConfiguration().getInt("matrixK", 1);
+            int matrixK = 3;
             int[] vectorA = new int[matrixK];
             int[] vectorB = new int[matrixK];
 
@@ -73,14 +73,8 @@ public class MatrixMultiplication {
 
     // Driver method
     public static void main(String[] args) throws Exception {
-        if (args.length < 4) {
-            System.err.println("Usage: MatrixMultiplication <input_path_A> <input_path_B> <matrixK> <output_path>");
-            System.exit(1);
-        }
 
         Configuration conf = new Configuration();
-        conf.setInt("matrixK", Integer.parseInt(args[2]));
-
         Job job = Job.getInstance(conf, "matrix multiplication");
         job.setJarByClass(MatrixMultiplication.class);
 
@@ -95,9 +89,8 @@ public class MatrixMultiplication {
         job.setInputFormatClass(TextInputFormat.class);
         job.setOutputFormatClass(TextOutputFormat.class);
 
-        FileInputFormat.addInputPath(job, new Path(args[0])); // Matrix A
-        FileInputFormat.addInputPath(job, new Path(args[1])); // Matrix B
-        FileOutputFormat.setOutputPath(job, new Path(args[3])); // Output
+        FileInputFormat.addInputPath(job, new Path(args[0])); // Input
+        FileOutputFormat.setOutputPath(job, new Path(args[1])); // Output
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
