@@ -13,7 +13,11 @@ public class ProductSalesAnalyzer {
 
         @Override
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
-            String[] fields = value.toString().split(",");
+            // Skip header
+            String line = value.toString();
+            if (value.startsWith("Transaction")) return;
+
+            String[] fields = line.split(",");
             if (fields.length > COUNTRY_INDEX) {
                 String country = fields[COUNTRY_INDEX].trim();
                 context.write(new Text(country), new IntWritable(1));
