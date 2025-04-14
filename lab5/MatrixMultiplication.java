@@ -42,7 +42,7 @@ public class MatrixMultiplication {
     public static class MultiplicationReducer extends Reducer<Text, Text, Text, IntWritable> {
         @Override
         public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-            int matrixK = 3;
+            int matrixK = 2;
             int[] vectorA = new int[matrixK];
             int[] vectorB = new int[matrixK];
 
