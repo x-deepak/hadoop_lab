@@ -15,7 +15,7 @@ public class ProductSalesAnalyzer {
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             // Skip header
             String line = value.toString();
-            if (value.startsWith("Transaction")) return;
+            if (line.startsWith("Transaction")) return;
 
             String[] fields = line.split(",");
             if (fields.length > COUNTRY_INDEX) {
