@@ -2,6 +2,10 @@
 
 # Run this after keygen step and local ssh cmd is working
 
+# pwd: /home/hadoop/
+# chmod u+x install.sh
+# Run as:  source install.sh
+
 wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
 
 tar -xvzf hadoop-3.3.6.tar.gz

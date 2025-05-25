@@ -1,12 +1,5 @@
 # Hadoop Installation
 
-[Medium Reference Link](https://arjunkrish.medium.com/step-by-step-guide-to-setting-up-hadoop-on-ubuntu-installation-and-configuration-walkthrough-60e493e9370d)
-
-[Ubuntu Hadoop Link](https://drive.google.com/drive/folders/1W0AaKcLqwrg92-_Y0IpKd8cuRnJ1Ocop?usp=sharing)
-
-##### Use install.sh after finishing step 8 only
-##### OR Use configure-hadoop.sh after finishing step 10 only
-
 ## Step 1: Install Java Development Kit:
 ```
 sudo apt update && sudo apt install openjdk-8-jdk
@@ -199,35 +192,26 @@ jps
 
 ## Step 13: Access Hadoop Namenode and Resource Manager
 
-```
-sudo apt install net-tools
-ifconfig
-```
-
 ##### Access the Namenode
 ```
-http://your-server-ip:9870
+http://localhost:9870
 ```
 
 ##### Access the Resource Manager
 ```
-http://your-server-ip:8088
+http://localhost:8088
 ```
 
 ## Step 14: Verify the Hadoop Cluster
 
 ```
 hdfs dfs -mkdir /test1
-hdfs dfs -mkdir /logs
 ```
 
 ```
 hdfs dfs -ls /
 ```
 
-```
-hdfs dfs -put /var/log/* /logs/
-```
 
 Go to the web interface, click on the Utilities => Browse the file system. You should see your directories,
 
@@ -235,3 +219,8 @@ Go to the web interface, click on the Utilities => Browse the file system. You s
 ```
 stop-all.sh
 ```
+
+
+## References:
+
+[Medium Reference Link](https://arjunkrish.medium.com/step-by-step-guide-to-setting-up-hadoop-on-ubuntu-installation-and-configuration-walkthrough-60e493e9370d)
